@@ -329,8 +329,8 @@ setup_client() {
         *) transport="tcp" ;;
     esac
 
-    read -p "Enable TCP Mux? [y/N]: " use_mux
-    [[ "$use_mux" =~ ^[Yy]$ ]] && mux="true" || mux="false"
+    read -p "Enable TCP Mux (y/n) [n]: " use_mux
+    use_mux=${use_mux:-n}
 
     read -p "Local ports to expose (e.g. 22,6000-6006,6007): " port_input
 
@@ -347,7 +347,7 @@ auth.method = "token"
 auth.token = "$auth_token"
 
 transport.protocol = "$transport"
-transport.tcpMux = $mux
+transport.tcpMux = $( [[ $use_mux =~ ^[Yy]$ ]] && echo true || echo false )
 transport.tcpMuxKeepaliveInterval = 10
 transport.dialServerTimeout = 10
 transport.dialServerKeepalive = 120
