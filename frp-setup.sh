@@ -594,7 +594,7 @@ main_menu() {
         echo "4) Advanced Configuration"
         echo "5) Show Status"
         echo "6) Stop All Services"
-        echo "7) Utilities"
+        echo "7) Optimization Utilities"
         echo "8) Remove FRP"
         echo "9) Exit"
         echo
