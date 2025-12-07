@@ -149,8 +149,15 @@ install_script() {
     fi
 
     print_info "Installing script as frp-manager command..."
-    sudo cp "$SCRIPT_PATH" "$INSTALL_PATH"
+    curl -L https://raw.githubusercontent.com/mikeesierrah/frp-script/main/frp-setup.sh -o "$INSTALL_PATH"
     sudo chmod +x "$INSTALL_PATH"
+
+    # Comment out the call to install_script in the installed version
+    sed -i 's/^install_script$/# install_script/' "$INSTALL_PATH"
+
+    # Comment out the call to optimize in the installed version
+    sed -i 's/^optimize$/# optimize/' "$INSTALL_PATH"
+
     print_success "Script installed as frp-manager. You can now run it by typing 'frp-manager' in terminal."
 }
 
