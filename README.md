@@ -133,6 +133,12 @@ journalctl -u frps@server-7000 -f
 journalctl -u frpc@client-7000 -f
 ```
 
+### ری استارت سرویس ها
+```bash
+systemctl restart frps@server-7000
+systemctl restart frpc@client-7000
+```
+
 ### پیکربندی دستی
 
 فایل‌های پیکربندی در مسیر زیر ذخیره می‌شن:
