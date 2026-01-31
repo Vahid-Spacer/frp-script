@@ -128,14 +128,15 @@ systemctl status frpc@client-7000
 ```bash
 # لاگ سرور
 journalctl -u frps@server-7000 -f
-
 # لاگ کلاینت
 journalctl -u frpc@client-7000 -f
 ```
 
 ### ری استارت سرویس ها
 ```bash
+# ری استارت سرور
 systemctl restart frps@server-7000
+# ری استارت کلاینت
 systemctl restart frpc@client-7000
 ```
 
